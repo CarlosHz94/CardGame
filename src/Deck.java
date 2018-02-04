@@ -11,25 +11,13 @@ import java.util.Collections;
  * @author Carlos Hernandez
  *
  */
-public class Deck {
-	/**
-	 * List of cards
-	 */
-	private ArrayList<Card> deck;
+public class Deck extends SetOfCards{
 	
 	/**
 	 * Constructs a Deck object
 	 */
 	public Deck(){
-		deck = new ArrayList<Card>();
-	}
-	
-	/**
-	 * Adds a card to the deck
-	 * @param card Card to be added to the deck
-	 */
-	public void addCard(Card card){
-		deck.add(card);
+		super();
 	}
 		
 	/**
@@ -57,7 +45,7 @@ public class Deck {
 	 * Shuffles the deck
 	 */
 	public void shuffleDeck(){
-		Collections.shuffle(deck);
+		Collections.shuffle(cardSet);
 	}
 	
 	/**
@@ -65,18 +53,7 @@ public class Deck {
 	 * @return Card drawn
 	 */
 	public Card drawCard(){
-		return deck.remove(0);
-	}
-		
-	/**
-	 * Prints the deck
-	 */
-	public String toString(){
-		String deck = "";
-		for(int i = 0; i < this.deck.size(); i++){
-			deck += this.deck.get(i);
-		}
-		return deck;
+		return cardSet.remove(0);
 	}
 }
 	
