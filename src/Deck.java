@@ -55,6 +55,10 @@ public class Deck extends SetOfCards{
 	public Card drawCard(){
 		return cardSet.remove(0);
 	}
+	
+	public boolean isEmpty(){
+		return cardSet.isEmpty();
+	}
 }
 	
 

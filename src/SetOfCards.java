@@ -7,6 +7,9 @@ import java.util.ArrayList;
  *
  */
 public class SetOfCards {
+	boolean name = true;
+	boolean atk = false;
+	boolean hp = false;
 	/**
 	 * The card set
 	 */
@@ -35,6 +38,9 @@ public class SetOfCards {
 		return cardSet.size();
 	}
 	
+	public Card getCard(int index){
+		return cardSet.get(index);
+	}
 	/**
 	 * Prints the set of cards
 	 */

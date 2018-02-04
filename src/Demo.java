@@ -2,24 +2,28 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Demo {
 	public static void main(String[] args){
 		String fileName = "testDeck.txt";
-		String card = null;
+		Deck testDeck = new Deck();
+		Deck testDeck2 = new Deck();
+		testDeck.makeDeck(fileName);
+		testDeck2.makeDeck(fileName);
 		
-		Deck myDeck = new Deck();
-		myDeck.makeDeck(fileName);
-		System.out.println(myDeck);
-		myDeck.shuffleDeck();
-		System.out.println("*****************************************");
-		System.out.println(myDeck);
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Please enter the name of player 1...");
+		String name = scan.next();
+		Player player1 = new Player(name, testDeck);
+		System.out.println("Please enter the name of player 2...");
+		name = scan.next();
+		Player player2 = new Player(name, testDeck2);
+		player1.setUpOpponent(player2);
+		player2.setUpOpponent(player1);
+		Game game = new Game(player1, player2);
 		
-		Card testCard1 = new Card("test", 3,3,3);
-		Card testCard2 = new Card("test2",1,2,3);
-		System.out.println(testCard1 + "" + testCard2);
-		testCard1.attack(testCard2);
-		System.out.println(testCard1 + "" + testCard2);
+		game.start();
 		
 	}
 }

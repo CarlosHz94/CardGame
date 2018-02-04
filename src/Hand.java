@@ -33,4 +33,63 @@ public class Hand extends SetOfCards{
 	public Card playCard(int index){
 		return cardSet.remove(index);
 	}
+	
+	/**
+	 * Displays board
+	 */
+	public void displayHand(){
+		if(!cardSet.isEmpty()){
+			displayHyphens();
+			for(int i = 0; i < 10; i++){
+				if(i == 1){
+					name = false;
+					atk = true;
+				}
+				if(i == 2){
+					atk = false;
+					hp = true;
+				}else{
+					hp=false;
+				}
+				displaySpaces();
+			}
+			displayHyphens();
+			name = true;
+		}else{
+			System.out.println("You do not have any cards in your hard");
+		}
+	}
+	
+	/**
+	 * Displays Hyphens for the hand
+	 */
+	public void displayHyphens(){
+		for(int i = 0; i < cardSet.size(); i++){
+			System.out.print("+-----------------------");
+		}
+		System.out.println("+");
+	}
+	
+	/**
+	 * Displays spaces for the hand
+	 */
+	public void displaySpaces(){
+		for(int i = 0; i < cardSet.size(); i++){
+			if(i < cardSet.size() && !cardSet.isEmpty()){
+				if(name){
+					System.out.print("+" + cardSet.get(i).getCardName());
+				}else if(atk){
+					System.out.print("+Attack: " + cardSet.get(i).getAtkValue() + "		");
+				}else if(hp){
+					System.out.print("+HP" + cardSet.get(i).getHpValue() + "			");
+				}else{
+					System.out.print("+			");
+				}
+			}
+			else{
+				System.out.print("+			");
+			}
+		}
+		System.out.println("+");
+	}
 }

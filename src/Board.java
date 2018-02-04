@@ -37,17 +37,32 @@ public class Board extends SetOfCards{
 		}
 	}
 	
+	public void check(int index){
+		if(cardSet.get(index).getHpValue() <= 0){
+			cardSet.remove(index);
+		}
+	}
+	
 	/**
 	 * Displays board
 	 */
 	public void displayBoard(){
-		/*for(int j = 0; j < 2; j++){
-			displayHyphens();
-			for(int i = 0; i < 10; i++){
-				displaySpaces();
+		displayHyphens();
+		for(int i = 0; i < 10; i++){
+			if(i == 1){
+				name = false;
+				atk = true;
 			}
+			if(i == 2){
+				atk = false;
+				hp = true;
+			}else{
+				hp=false;
+			}
+			displaySpaces();
 		}
-		displayHyphens();*/
+		displayHyphens();
+		name = true;
 	}
 	
 	/**
@@ -55,7 +70,7 @@ public class Board extends SetOfCards{
 	 */
 	public void displayHyphens(){
 		for(int i = 0; i < 5; i++){
-			System.out.print("+----------------");
+			System.out.print("+-----------------------");
 		}
 		System.out.println("+");
 	}
@@ -65,7 +80,20 @@ public class Board extends SetOfCards{
 	 */
 	public void displaySpaces(){
 		for(int i = 0; i < 5; i++){
-			System.out.print("+                ");
+			if(i < cardSet.size() && !cardSet.isEmpty()){
+				if(name){
+					System.out.print("+" + cardSet.get(i).getCardName());
+				}else if(atk){
+					System.out.print("+Attack: " + cardSet.get(i).getAtkValue() + "		");
+				}else if(hp){
+					System.out.print("+HP" + cardSet.get(i).getHpValue() + "			");
+				}else{
+					System.out.print("+			");
+				}
+			}
+			else{
+				System.out.print("+			");
+			}
 		}
 		System.out.println("+");
 	}

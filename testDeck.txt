@@ -1,11 +1,11 @@
-Pebble;1;1;1
-Stone;2;2;2
-Gravel;3;3;3
-Concrete Chunk;4;4;4
-Dwayne Johnson;7;7;7
-Label Tab;1;1;1
-Post-it;2;2;2
-Index Card;3;3;3
+Pebble                 ;1;1;1
+Stone                  ;2;2;2
+Gravel                 ;3;3;3
+Concrete Chunk         ;4;4;4
+Dwayne Johnson         ;7;7;7
+Label Tab              ;1;1;1
+Post-it                ;2;2;2
+Index Card             ;3;3;3
 Crayola Safety Scissors;1;1;1
-Nail Clippers;2;2;2
-Thinning Shears;3;3;3
+Nail Clippers          ;2;2;2
+Thinning Shears        ;3;3;3
