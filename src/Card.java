@@ -62,6 +62,10 @@ public class Card {
 		
 	}
 	
+	public void directAttack(Player opponent){
+		opponent.updateLifePoints(getAtkValue());
+	}
+	
 	/**
 	 * Name getter
 	 * @return Name of Card
