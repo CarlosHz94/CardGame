@@ -18,10 +18,10 @@ public class Hand extends SetOfCards{
 	 * @param deck Deck where the card will be drawn from
 	 */
 	public void drawCard(Deck deck){
-		if(cardSet.size()<3){
+		if(cardSet.size()<4){
 			addCard(deck.drawCard());
 		}else{
-			System.out.println("CARD WASTED: \n" + deck.drawCard());
+			System.out.println("CARD WASTED: \n\n" + deck.drawCard());
 		}
 	}
 	
@@ -51,10 +51,14 @@ public class Hand extends SetOfCards{
 				}else{
 					hp=false;
 				}
+				if(i == 9){
+					mana = true;
+				}
 				displaySpaces();
 			}
 			displayHyphens();
 			name = true;
+			mana = false;
 		}else{
 			System.out.println("You do not have any cards in your hard");
 		}
@@ -82,6 +86,8 @@ public class Hand extends SetOfCards{
 					System.out.print("+Attack: " + cardSet.get(i).getAtkValue() + "		");
 				}else if(hp){
 					System.out.print("+HP" + cardSet.get(i).getHpValue() + "			");
+				}else if(mana){
+					System.out.print("+		     (" + cardSet.get(i).getManaCost() + ")");
 				}else{
 					System.out.print("+			");
 				}

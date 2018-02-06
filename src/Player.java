@@ -61,37 +61,60 @@ public class Player {
 	}
 	
 	public void directAttack(int attackerIndex){
-		
+		myBoard.getCard(attackerIndex).directAttack(opponent);
+		System.out.println(opponent.getName() + " has " + opponent.getLifePoints() + " Life Points left");
 	}
 	
-	public void turn(){
+	public void turn(int mana){
 		drawCard();
 		opponent.getBoard().displayBoard();
 		myBoard.displayBoard();
 		hand.displayHand();
-		System.out.println("Please choose a card to play, enter 'a' to attack this turn or 'q' to end your turn");
-		String input;
-		Scanner scan = new Scanner(System.in);
-		input = scan.next();
-		System.out.println("The input is '" + input+"'");
-		if(input.equals("q")){
-			return;
-		}else if(input.equals("a")){
-			System.out.println("Choose the attacker card, then the target card");
-			int atk = scan.nextInt();
-			int trgt = scan.nextInt();
-			attack(atk,trgt);
-		}else{
-			playCard(Integer.parseInt(input));
-		}
-		opponent.getBoard().displayBoard();
-		myBoard.displayBoard();
-		input = scan.next();
-		if(input == "q"){
-			return;
+		System.out.println(name + " please choose a card to play, enter 'a' to attack this turn or 'q' to end your turn");
+		String input = "";
+		while(true){
+			Scanner scan = new Scanner(System.in);
+			input = scan.next();
+			if(input.equals("q")){
+				break;
+			}
+			if(input.equals("a")){
+				System.out.println("Choose the attacker card, then the target card");
+				int atk = scan.nextInt();
+				int trgt = scan.nextInt();
+				if(trgt < 5){
+					attack(atk,trgt);
+				}else{
+					directAttack(atk);
+				}
+			}else{
+				while(!isValid(hand.getCard(Integer.parseInt(input)), mana)){
+					System.out.println("You don't have enough mana to play that card!");
+					System.out.println("Please choose a card");
+					input = scan.next();
+					if(input.equals("q")){
+						break;
+					}
+				}
+				mana -= hand.getCard(Integer.parseInt(input)).getManaCost();
+				playCard(Integer.parseInt(input));
+			}
+			opponent.getBoard().displayBoard();
+			myBoard.displayBoard();
+			hand.displayHand();
 		}
 	}
 	
+	public boolean isValid(Card card, int mana){
+		if(card.getManaCost() <= mana){
+			return true;
+		}
+		return false;
+	}
+	
+	public String getName(){
+		return name;
+	}
 	public Board getBoard(){
 		return myBoard;
 	}

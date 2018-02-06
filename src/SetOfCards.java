@@ -10,6 +10,7 @@ public class SetOfCards {
 	boolean name = true;
 	boolean atk = false;
 	boolean hp = false;
+	boolean mana = false;
 	/**
 	 * The card set
 	 */

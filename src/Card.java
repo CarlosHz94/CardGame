@@ -34,6 +34,8 @@ public class Card {
 	 */
 	private int atkValue;
 	
+	private boolean attack;
+	
 	
 	/**
 	 * Constructs a card object given a name, mana cost, hp value, and 
@@ -48,6 +50,7 @@ public class Card {
 		manaCost = mana;
 		hpValue = hp;
 		atkValue = atk;
+		attack = false;
 	}
 	
 	/**
@@ -118,4 +121,7 @@ public class Card {
 		return card;
 	}
 	
+	public void canAttack(){
+		
+	}
 }
