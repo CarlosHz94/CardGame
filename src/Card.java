@@ -128,4 +128,5 @@ public class Card {
 	public void canAttack(){
 		
 	}
+
 }

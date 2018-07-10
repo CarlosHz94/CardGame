@@ -74,6 +74,7 @@ public class Player {
 		System.out.println(opponent.getName() + " has " + opponent.getLifePoints() + " Life Points left");
 	}
 	
+
 	/**
 	 * Turn sequence of the player based on their current mana available
 	 * @param mana Mana available 
@@ -129,6 +130,7 @@ public class Player {
 			return true;
 		}
 		return false;
+
 	}
 	
 	/**
