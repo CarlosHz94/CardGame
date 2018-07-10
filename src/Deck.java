@@ -60,14 +60,3 @@ public class Deck extends SetOfCards{
 		return cardSet.isEmpty();
 	}
 }
-	
-
-		
-		
-		
-		
-		
-		
-		
-	
-	
